@@ -1,0 +1,27 @@
+
+#setenv A $BASH_VERSION
+
+
+
+
+
+
+hardstatus alwayslastline
+
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
+altscreen on    # restore window contents after using (e.g.) vi
+
+startup_message off
+deflogin on
+
+shelltitle '$ |bash'
+
+
+screen 0
+screen 1
+screen 2
+
+select 0
+
+

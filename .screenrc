@@ -25,3 +25,6 @@ screen 2
 select 0
 
 
+# This line makes Detach and Re-attach without losing the regions/windows layout
+layout save default
+

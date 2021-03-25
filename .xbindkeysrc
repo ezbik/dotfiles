@@ -1,0 +1,43 @@
+
+#GETPASS
+"~/bin/GETPASS"
+    m:0x8 + c:33
+    Alt + p 
+
+#pause
+"audacious -t"
+   Control+Alt + q
+
+#up
+#"mpc volume +5"
+"audtool set-volume +10"
+    m:0xc + c:38
+    Control+Alt + a 
+
+#down
+#"mpc volume -5"
+"audtool set-volume -10"
+    m:0xc + c:52
+    Control+Alt + z 
+
+"/bin/bash ~/bin/notify_mpc"
+    m:0xc + c:32
+    Control+Alt + o 
+
+##en-ru
+#"setxkbmap -layout  'us,ru'  -option grp:caps_toggle"
+#    m:0xc + c:10
+#    Control+Alt + 1 
+#
+##en-by
+#"setxkbmap -layout  'us,by'    -option grp:caps_toggle"
+#    m:0xc + c:11
+#    Control+Alt + 2 
+
+#weather
+"~/bin/weather.my"
+    m:0xc + c:25
+    Control+Alt + w 
+
+#
+# End of xbindkeys configuration

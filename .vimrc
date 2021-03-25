@@ -48,7 +48,8 @@ set noautoindent
 "colorscheme  slate
 "colorscheme  morning
 "colorscheme  simple256
-colorscheme  peachpuff
+"colorscheme  peachpuff
+colorscheme  default
 
 set modeline
 
@@ -127,7 +128,7 @@ map ,ii :norm 0i<TAB><CR>
 map ,ri :s/^ *//<CR>
 
 " Insert bash shebang
-map ,ib <Esc>1GO#!/bin/bash<Esc>:filetype detect<CR>
+map ,ib <Esc>1GO#!/bin/bash<CR>PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin<CR># vim: filetype=bash<CR><Esc>:filetype detect<CR>
 
 " Insert Quote >
 map ,iq :norm 0i> <CR>
@@ -165,5 +166,10 @@ set cm=blowfish2
 " disable mouse clicks & scroll
 set mouse-=a
 
+
 au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
+"au      BufRead,BufNewFile *.pp if &ft == '' | setfiletype puppet | endif
+au      BufRead,BufNewFile *.pp set ft=puppet 
+autocmd BufNewFile,BufRead *.jinja2,*.j2,*.jinja,*.tera set ft=jinja
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 

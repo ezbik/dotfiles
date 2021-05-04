@@ -59,8 +59,8 @@ function p { ping -n $@; }
         #echo  "scale=10;$calc"|bc -l; 
 }
 
-
-PS1='^\[\e[1;34m\][\w]\$\[\e[0m\] '
+#   31..36
+NUM_UNIQUE=$(( 31 + $(stat -c %Y /etc/hostname ) % 6 ))
 
 prompt_command () {
     local rts=$?
@@ -70,7 +70,7 @@ prompt_command () {
     [ ${#w} -gt $L ] && { local n=$((${#w} - $L + ${#m}))
     local w="${m}${w:$n}" ; }  ||   local w="${w}"
     # different colors for different return status
-    [ $rts -eq 0 ] && PS1='^\[\e[1;34m\]['${w}']\$\[\e[0m\] '
+    [ $rts -eq 0 ] && PS1='\[\e[1;'$NUM_UNIQUE'm\]\u@\h ['${w}']\$\[\e[0m\] '
 }
 
 if [ $SHLVL -lt 2 ]
@@ -166,3 +166,4 @@ ip li set dev $iface up
 sudo nmap --script broadcast-dhcp-discover -e $iface
 }
 
+alias cx="chmod +x"

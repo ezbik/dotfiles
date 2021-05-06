@@ -167,3 +167,15 @@ sudo nmap --script broadcast-dhcp-discover -e $iface
 }
 
 alias cx="chmod +x"
+
+alias jf='journalctl -f'
+
+function systemctl() {
+    case $1 in
+        edit)   /bin/systemctl "$@"    ;;
+        *)    /bin/systemctl -l --no-pager $@   ;;
+    esac
+}
+
+
+

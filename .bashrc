@@ -20,6 +20,10 @@ unset color_prompt force_color_prompt
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
+
+    # on physical TTY, change dark blue to lighter
+    tty | grep /dev/tty/ -q && LS_COLORS+="di=0;44"
+
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
